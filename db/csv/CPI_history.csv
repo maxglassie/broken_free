@@ -24,7 +24,7 @@ CPI 2016 Rank,Country,Country Code,Region,CPI 2016 Score,CPI 2015 Score,CPI 2014
 75,Bulgaria,BGR,Europe and Central Asia,41,41,43,41,41
 72,Burkina Faso,BFA,Sub-Saharan Africa,42,38,38,38,38
 159,Burundi,BDI,Sub-Saharan Africa,20,21,20,21,19
-108,C̫te d�۪Ivoire,CIV,Sub-Saharan Africa,34,32,32,27,29
+108,Cote d-Ivoire,CIV,Sub-Saharan Africa,34,32,32,27,29
 156,Cambodia,KHM,Asia Pacific,21,21,21,20,22
 145,Cameroon,CMR,Sub-Saharan Africa,26,27,27,25,26
 9,Canada,CAN,Americas,82,83,81,81,84
@@ -80,8 +80,8 @@ CPI 2016 Rank,Country,Country Code,Region,CPI 2016 Score,CPI 2015 Score,CPI 2014
 57,Jordan,JOR,Middle East and North Africa,48,53,49,45,48
 131,Kazakhstan,KAZ,Europe and Central Asia,29,28,29,26,28
 145,Kenya,KEN,Sub-Saharan Africa,26,25,25,27,27
-174,Korea (North),PRK,Asia Pacific,12,8,8,8,8
-52,Korea (South),KOR,Asia Pacific,53,56,55,55,56
+174,"Korea, North",PRK,Asia Pacific,12,8,8,8,8
+52,"Korea, South",KOR,Asia Pacific,53,56,55,55,56
 95,Kosovo,LWI,Europe and Central Asia,36,33,33,33,34
 75,Kuwait,KWT,Middle East and North Africa,41,49,44,43,44
 136,Kyrgyzstan,KGZ,Europe and Central Asia,28,28,27,24,24
