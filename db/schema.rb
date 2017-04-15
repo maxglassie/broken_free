@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408212600) do
+ActiveRecord::Schema.define(version: 20170412005117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,19 +18,21 @@ ActiveRecord::Schema.define(version: 20170408212600) do
   create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "region_id"
+    t.string   "income_group"
+    t.string   "two_code"
     t.index ["region_id"], name: "index_countries_on_region_id", using: :btree
   end
 
   create_table "indicators", force: :cascade do |t|
-    t.float    "EFI"
-    t.float    "CPI"
+    t.float    "economic_freedom_index"
+    t.float    "corruption_perception_index"
     t.integer  "country_id"
     t.integer  "year_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["country_id"], name: "index_indicators_on_country_id", using: :btree
     t.index ["year_id"], name: "index_indicators_on_year_id", using: :btree
   end

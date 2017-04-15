@@ -1,0 +1,19 @@
+
+<div class="regions">
+  <h1>Regions and Their Countries</h1>
+<table>
+  <tr>
+    <th>Region</th>
+    <th>Country</th>
+    <th>Economic Freedom Index</th>
+  </tr>
+      <% @regions.each do |region| %>
+        <% region.countries.each do |country| %>
+    <tr>
+      <td><%= country.region.title %></td>
+      <td><%= country.name %></td>
+    </tr>
+        <% end %>
+      <% end %>
+</table>
+</div>
