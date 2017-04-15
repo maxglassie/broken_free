@@ -10,6 +10,5 @@ RSpec.feature "user visits region index page" do
     save_and_open_page
     expect(page).to have_content("Asia-Pacific")
     expect(page).to have_content("Afghanistan")
-    expect(page).to have_content(15)
   end
 end
