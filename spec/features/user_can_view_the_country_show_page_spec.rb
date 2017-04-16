@@ -2,12 +2,9 @@ require 'rails_helper'
 
 feature "user can search for country by code" do
   scenario "user enters country code and it returns world bank data" do
-    visit root_path
+    country = Country.create(name: "Argentina")
 
-    fill_in("Search", with: "arg")
-    click_on "Search"
-
-    expect(current_path).to eq(root_path)
+    visit country_path(country)
 
     expect(page).to have_content("Argentina")
     expect(page).to have_content("Latin America & Caribbean ")
