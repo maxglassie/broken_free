@@ -21,3 +21,5 @@ coverage
 
 #datafiles
 db/csv
+# Ignore application configuration
+/config/application.yml
