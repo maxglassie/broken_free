@@ -1,0 +1,13 @@
+<div>
+  <% @presenter.all_regions.each do |region| %>
+      <%= link_to "#{region.title}" %>
+  <br>
+  <% end %>
+</div>
+
+<div>
+  <% @presenter.all_countries.each do |country| %>
+      <%= link_to "#{country.name}", country.name %>
+      <%= country.region.title%>
+  <% end %>
+</div>

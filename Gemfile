@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'awesome_print'
 gem 'faraday'
+gem 'omniauth-google-oauth2', "~> 0.2.1"
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
