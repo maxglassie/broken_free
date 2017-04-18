@@ -1,5 +1,3 @@
-# Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
-
 require 'csv'
 require 'pry'
 
@@ -16,10 +14,10 @@ def import_WB_countries_regions
       country = Country.find_or_create_by(region: region, code: code, name: country_name)
       country.update(income_group: income_group, two_code: wb_two_code)
 
-      year_2016 =  Year.create(year: "2016")
-      year_2015 = Year.create(year: "2015")
-      year_2014 = Year.create(year: "2014")
-      year_2013 = Year.create(year: "2013")
+      year_2016 =  Year.find_or_create_by(year: "2016")
+      year_2015 = Year.find_or_create_by(year: "2015")
+      year_2014 = Year.find_or_create_by(year: "2014")
+      year_2013 = Year.find_or_create_by(year: "2013")
 
       indicator_2016 = country.indicators.create(country: country, year: year_2016)
       indicator_2015 = country.indicators.create(country: country, year: year_2015)
@@ -27,7 +25,6 @@ def import_WB_countries_regions
       indicator_2013 = country.indicators.create(country: country, year: year_2013)
 
       puts "Created #{country.code} #{country.name} in the #{country.region.title} region from World Bank data"
-      puts "Created indicator for #{indicator_2016.country.name} in #{indicator_2016.year}"
     end
       puts "Imported World Bank Country data"
 end
@@ -44,14 +41,22 @@ def import_CPI_data
       score_2015 = row[:cpi_2015_score]
       score_2014 = row[:cpi_2014_score]
       score_2013 = row[:cpi_2013_score]
-      
-      country = Country.find_by(code: code)
 
-      #find not create for indicators
+      country = Country.find_by(code: code)
+      year_2016 = Year.find_by(year: "2016")
+      year_2015 = Year.find_by(year: "2015")
+      year_2014 = Year.find_by(year: "2014")
+      year_2013 = Year.find_by(year: "2013")
+
+      indicator_2016 = Indicator.find_by(country: country, year: year_2016)
+      indicator_2015 = Indicator.find_by(country: country, year: year_2015)
+      indicator_2014 = Indicator.find_by(country: country, year: year_2014)
+      indicator_2013 = Indicator.find_by(country: country, year: year_2013)
+
       indicator_2016.update(corruption_perception_index: score_2016)
       indicator_2015.update(corruption_perception_index: score_2015)
-      indicator_2014.update(corruption_perception_index: score_2014)
       indicator_2013.update(corruption_perception_index: score_2013)
+      indicator_2014.update(corruption_perception_index: score_2014)
 
       puts "Added #{country.name} in the #{country.region.title} region CPI data"
     end
@@ -69,28 +74,26 @@ def import_EFI_data
     score_2014 = row[:score_efi_2014]
     score_2013 = row[:score_efi_2013]
 
+    country = Country.find_by(code: code)
     year_2016 =  Year.find_by(year: "2016")
     year_2015 = Year.find_by(year: "2015")
     year_2014 = Year.find_by(year: "2014")
     year_2013 = Year.find_by(year: "2013")
 
-    country = Country.find_by(code: code)
 
-    indicator_2016 = Indicator.find_or_create_by(country: country, year: year_2016)
-    indicator_2015 = Indicator.find_or_create_by(country: country, year: year_2015)
-    indicator_2014 = Indicator.find_or_create_by(country: country, year: year_2014)
-    indicator_2013 = Indicator.find_or_create_by(country: country, year: year_2013)
+    indicator_2016 = Indicator.find_by(country: country, year: year_2016)
+    indicator_2015 = Indicator.find_by(country: country, year: year_2015)
+    indicator_2014 = Indicator.find_by(country: country, year: year_2014)
+    indicator_2013 = Indicator.find_by(country: country, year: year_2013)
 
     indicator_2016.update(economic_freedom_index: score_2016)
     indicator_2015.update(economic_freedom_index: score_2015)
     indicator_2014.update(economic_freedom_index: score_2014)
     indicator_2013.update(economic_freedom_index: score_2013)
 
-    binding.pry
-
     puts "Added #{country.name} in the #{country.region.title} region EFI data"
   end
-  puts "Imported EFI #{year} data"
+  puts "Imported EFI data"
 end
 
 
