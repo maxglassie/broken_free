@@ -2,18 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it "creates or updates itself from an oauth hash" do
-      # auth = {
-      #   provider: "google_oauth2",
-      #   uid: "12345678910",
-      #   info: {
-      #     name: "Max Glassie"
-      #   },
-      #   credentials: {
-      #     oauth_token: "abcdefg12345",
-      #     refresh_token: "12345abcdefg",
-      #     expires_at: DateTime.now
-      #   }
-      # }
       auth = stub_omniauth
 
       User.from_omniauth(auth)

@@ -4,8 +4,12 @@ class Presenter
     @regions = Region.all
   end
 
-  def all_countries
-    @countries = Country.all
+  def show_countries(region)
+    if region
+      Country.where(region: Region.find(region))
+    else
+      Country.all
+    end
   end
 
 end
