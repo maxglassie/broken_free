@@ -8,3 +8,5 @@ inner join years y on y.id = i.year_id
 order by c.name;
 
 #query by average by region
+
+#query
