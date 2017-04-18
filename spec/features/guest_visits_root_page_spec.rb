@@ -17,7 +17,6 @@ RSpec.feature "user visits home page" do
 
     expect(current_path).to eq('/')
 
-    save_and_open_page
     expect(page).to have_content("South Asia")
     expect(page).to have_content("Europe & Central Asia")
     expect(page).to have_content("Middle East & North Africa")
