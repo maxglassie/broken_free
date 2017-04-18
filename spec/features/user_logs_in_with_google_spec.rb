@@ -8,15 +8,14 @@ RSpec.feature "user logs in" do
     visit root_path
     expect(page).to have_link("Sign in with Google")
     click_link "Sign in with Google"
-    
+
     expect(page).to have_content("Max Glassie")
-    expect(page).to have_content("Logout")
+    expect(page).to have_content("Sign out")
   end
 
    def stub_omniauth
       OmniAuth.config.test_mode = true
-      binding.pry
-      OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+      OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
             provider: "google_oauth2",
             uid: "12345678910",
             info: {
