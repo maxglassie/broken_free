@@ -1,32 +1,41 @@
 
 <div class="container">
   <h1 class="center blue-text"><%= @decorator.country.name %></h1>
-  <h2>Region: <%= @decorator.country.region.title%></h2>
-  <h2>Income Group: <%= @decorator.country.income_group%></h2>
 
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey">
+        <div class="card-content white-text center">
+        <span class="card-title"> Region and Income Group </span>
+          <p>Region: <%= link_to "#{@decorator.country.region.title}", root_path(:region => @decorator.country.region.id) %></p>
+           <p>Income Group: <%= @decorator.country.income_group%></p>
+        </div>
+     </div>
+    </div>
+  </div>
 
 <div class="row">
   <div class="col s12">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Economic Freedom Index</th>
-        <th>Corruption Perception Index</th>
-        <th>Income Share Held By Top 10%</th>
-        <th>Year</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @decorator.indicators.each do |indicator_set| %>
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= indicator_set[0].economic_freedom_index %></td>
-            <td><%= indicator_set[0].corruption_perception_index %></td>
-            <td><%= indicator_set[1].highest_income %></td>
-            <td><%= indicator_set[0].year.year %></td>
+            <th>Economic Freedom Index</th>
+            <th>Corruption Perception Index</th>
+            <th>Income Share Held By Top 10%</th>
+            <th>Year</th>
           </tr>
-        <% end %>
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+          <% @decorator.indicators.each do |indicator_set| %>
+              <tr>
+                <td><%= indicator_set[0].economic_freedom_index %></td>
+                <td><%= indicator_set[0].corruption_perception_index %></td>
+                <td><%= indicator_set[1].highest_income %></td>
+                <td><%= indicator_set[0].year.year %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </div>

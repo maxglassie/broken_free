@@ -8,11 +8,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
   </head>
-
   <body>
-        <div>
-          
-        </div>
+
+    <nav>
+      <div class="nav-wrapper deep-purple darken-4">
+        <a href=<%= root_path %> class="brand-logo deep-purple darken-4">Broken Free</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li></li>
+        </ul>
+      </div>
+    </nav>
         <div>
           <% if current_user %>
             Signed in as <strong><%= current_user.name %></strong>

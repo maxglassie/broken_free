@@ -10,6 +10,5 @@ Rails.application.routes.draw do
 
   root to: 'home#index', as: 'root'
   resource :home, only: [:show]
-
   root to: "home#show"
 end
