@@ -21,6 +21,8 @@ RSpec.feature "user visits home page" do
     @pakistan_indicator_2014 = @pakistan.indicators.create(economic_freedom_index: 55.2, corruption_perception_index: 29.0, year: @year_2014)
     @pakistan_indicator_2013 = @pakistan.indicators.create(economic_freedom_index: 55.1, corruption_perception_index: 28.0, year: @year_2013)
 
+    @pakistan_world_bank_country = WorldBankCountry.find_by_country_code(@pakistan.code)
+    @pakistan_decorator = CountryDecorator.new(@pakistan, @pakistan_world_bank_country)
   end
 
   scenario "guest visits country show page and sees EFI & CPI indicators" do
@@ -28,6 +30,10 @@ RSpec.feature "user visits home page" do
 
     expect(page).to have_content("Pakistan")
     expect(page).to have_content("South Asia")
+
+    expect(page).to have_content("Economic Freedom Index")
+    expect(page).to have_content("Corruption Perception Index")
+    expect(page).to have_content("Income Share Held By Top 10%")
 
     expect(page).to have_content(55.9)
     expect(page).to have_content(55.6)
@@ -38,5 +44,10 @@ RSpec.feature "user visits home page" do
     expect(page).to have_content(30.0)
     expect(page).to have_content(29.0)
     expect(page).to have_content(28.0)
+
+    expect(page).to have_content("N/A")
+    expect(page).to have_content("N/A")
+    expect(page).to have_content("30.75")
+    expect(page).to have_content("30.56")
   end
 end
