@@ -15,6 +15,11 @@ class WorldBankService
     income_share = JSON.parse(response.body)
   end
 
+  def lowest_income_share(code)
+    response = @connection.get("/countries/#{code}/indicators/SI.DST.FRST.10?date=2013:2016&format=json")
+    income_share = JSON.parse(response.body)
+  end
+
   def fuel_exports(code)
     response = @connection.get("/countries/#{code}/indicators/TX.VAL.FUEL.ZS.UN?date=2013:2016&format=json")
     fuel_exports = JSON.parse(response.body)

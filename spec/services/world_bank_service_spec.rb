@@ -17,7 +17,7 @@ describe WorldBankService do
     expect(country[1].first["latitude"]).to eq("-34.6118")
   end
 
-  it "returns the income share held by highest 10% for 2016 - 2014 for a country" do
+  it "returns the income share held by highest 10% for 2016 - 2013 for a country" do
     country_code = "egy"
     income_share = @service.highest_income_share(country_code)
 
@@ -25,6 +25,16 @@ describe WorldBankService do
     expect(income_share[1][0]["country"]["value"]).to eq("Egypt, Arab Rep.")
     expect(income_share[1][0]["value"]).to eq(nil)
     expect(income_share[1][0]["date"]).to eq("2016")
+  end
+
+  it "returns the income share held by lowest 10% for 2016 - 2013 for a country" do
+    country_code = "usa"
+    income_share = @service.lowest_income_share(country_code)
+
+    expect(income_share[1][0]["indicator"]["value"]).to eq("Income share held by lowest 10%")
+    expect(income_share[1][0]["country"]["value"]).to eq("United States")
+    expect(income_share[1][3]["value"]).to eq("1.7")
+    expect(income_share[1][3]["date"]).to eq("2013")
   end
 
   it "returns the fuel exports % of total merchandise exports" do
