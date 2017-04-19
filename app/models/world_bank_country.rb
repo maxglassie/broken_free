@@ -29,6 +29,10 @@ class WorldBankCountry
     #indicator object has highest_income, govt_expenditure, etc
   end
 
+  def indicators
+    
+  end
+
   #indicator.highest_income
   #indicator.years
 
