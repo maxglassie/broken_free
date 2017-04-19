@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
+  resource :countries, only: [:show]
+
   root to: 'home#index', as: 'root'
   resource :home, only: [:show]
 

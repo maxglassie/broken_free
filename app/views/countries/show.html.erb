@@ -1,0 +1,22 @@
+
+<h1><%= @country.name %></h1>
+<h2>Region: <%= @country.region.title%></h2>
+<h2>Income Group: <%= @country.income_group%></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Economic Freedom Index</th>
+      <th>Corruption Perception Index</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @country.indicators.each do |indicator| %>
+    <tr>
+      <td><%= indicator.economic_freedom_index %></td>
+      <td><%= indicator.corruption_perception_index %></td>
+      <td><%= indicator.year.year %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
