@@ -12,4 +12,8 @@ class Presenter
     end
   end
 
+  def region_title(id)
+    Region.find(id).title
+  end
+
 end
