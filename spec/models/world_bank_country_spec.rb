@@ -18,7 +18,7 @@ describe "world bank country plain old ruby object" do
     argentina = WorldBankCountry.find_by_country_code(code)
 
     indicators = argentina.indicators
-    binding.pry
+
     expect(indicators[0].highest_income).to eq("N/A")
     expect(indicators[0].year).to eq("2016")
     expect(indicators[3].highest_income).to eq("30.56")

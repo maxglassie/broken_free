@@ -1,6 +1,7 @@
 class CountriesController < ApplicationController
 
   def show
-    @country = Country.find(params["format"])
+    @code = Country.find(params["format"]).code
+    @decorator = CountryDecorator.find_by_country_code(@code)
   end
 end

@@ -12,15 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @decorator.country.indicators.each do |country_indicator| %>
-        <% @decorator.world_bank_country.indicators do |world_bank_country_indicator| %>
+    <% @decorator.indicators.each do |indicator_set| %>
         <tr>
-          <td><%= country_indicator.economic_freedom_index %></td>
-          <td><%= country_indicator.corruption_perception_index %></td>
-          <td><%= world_bank_country_indicator.highest_income %></td>
-          <td><%= indicator.year.year %></td>
+          <td><%= indicator_set[0].economic_freedom_index %></td>
+          <td><%= indicator_set[0].corruption_perception_index %></td>
+          <td><%= indicator_set[1].highest_income %></td>
+          <td><%= indicator_set[0].year.year %></td>
         </tr>
       <% end %>
-    <% end %>
   </tbody>
 </table>

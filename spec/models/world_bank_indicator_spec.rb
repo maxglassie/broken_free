@@ -6,7 +6,7 @@ RSpec.describe "world bank indicator" do
     indicators = WorldBankIndicator.highest_income_share(code)
 
     indicator = indicators.first
-    expect(indicator.highest_income).to eq(nil)
+    expect(indicator.highest_income).to eq("N/A")
     expect(indicator.year).to eq("2016")
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "world bank indicator" do
 
     indicator = WorldBankIndicator.new.add_highest_income(indicator_data)
 
-    expect(indicator.highest_income).to eq(nil)
+    expect(indicator.highest_income).to eq("N/A")
     expect(indicator.year).to eq("2016")
   end
 end

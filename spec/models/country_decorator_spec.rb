@@ -46,9 +46,19 @@ RSpec.describe "country_decorator" do
     code = "PAK"
     pakistan_decorator = CountryDecorator.find_by_country_code(code)
 
-    binding.pry
     expect(pakistan_decorator.country.name).to eq("Pakistan")
     expect(pakistan_decorator.world_bank_country.name).to eq("Pakistan")
+  end
+
+  it "returns an array of indicators for both objects" do
+    code = "PAK"
+    pakistan_decorator = CountryDecorator.find_by_country_code(code)
+
+    indicators = pakistan_decorator.indicators
+    indicator_set = indicators.first
+
+    expect(indicator_set[0].class).to eq(Indicator)
+    expect(indicator_set[1].class).to eq(WorldBankIndicator)
   end
 
 end
