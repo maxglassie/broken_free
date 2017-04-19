@@ -1,7 +1,7 @@
 require 'csv'
 
 def import_WB_countries_regions
-    file = 'db/csv/WorldBank_Country_List.csv'
+    file = File.expand_path('../csv/WorldBank_Country_List.csv', __FILE__)
     CSV.foreach(file, encoding: 'utf-8', headers: true, header_converters: :symbol) do |row|
       code = row[:country_code]
       country_name = row[:table_name]
@@ -29,7 +29,7 @@ def import_WB_countries_regions
 end
 
 def import_CPI_data
-    file = 'db/csv/CPI_clean_data.csv'
+    file = File.expand_path('../csv/CPI_clean_data.csv', __FILE__)
 
     CSV.foreach(file, encoding: 'utf-8', headers: true, header_converters: :symbol) do |row|
       country_name = row[:country]
@@ -63,7 +63,7 @@ def import_CPI_data
 end
 
 def import_EFI_data
-  file = 'db/csv/EFI_clean_data.csv'
+  file = File.expand_path('../csv/EFI_clean_data.csv', __FILE__)
   CSV.foreach(file, encoding: 'iso-8859-1:utf-8', headers: true, header_converters: :symbol) do |row|
     code = row[:country_code]
     region = row[:region]
