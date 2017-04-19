@@ -28,7 +28,7 @@
       <tbody>
         <% @presenter.show_countries(params[:region]).each do |country| %>
           <tr>
-            <td><%= link_to "#{country.name}", country.name %></td>
+            <td><%= link_to "#{country.name}", countries_path(country) %></td>
             <td><%= country.region.title %></td>
           </tr>
         <% end %>
