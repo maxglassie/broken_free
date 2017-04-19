@@ -1,37 +1,50 @@
-<div>
-  <table>
-      <thead>
-        <tr>
-          <th>Regions</th>
-        </tr>
-      </thead>
-        <tbody>
-          <% @presenter.all_regions.each do |region| %>
-            <tr>
-              <td><%= link_to "#{region.title}", root_path(:region => region.id) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-  </table>
-  <br>
-</div>
+<div class="container">
+  <div class="row">
+  <div class="col s12 m4 l3">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card white">
+          <div class="card-content black-text">
+            <div class="regions">
+              <span class="card-title">Regions</span>
+              <% @presenter.all_regions.each do |region| %>
+              <%= link_to "#{region.title}", root_path(:region => region.id)%>
+              <br>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <table>
-      <caption>Countries</caption>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Region</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @presenter.show_countries(params[:region]).each do |country| %>
-          <tr>
-            <td><%= link_to "#{country.name}", countries_path(country) %></td>
-            <td><%= country.region.title %></td>
-          </tr>
-        <% end %>
-      </tbody>
-  </table>
+ <div class="col s12 m8 l9">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card white">
+          <div class="card-content black-text">
+            <div class="recent-activity">
+              <table>
+                  <caption>Countries</caption>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Region</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @presenter.show_countries(params[:region]).each do |country| %>
+                      <tr>
+                        <td><%= link_to "#{country.name}", countries_path(country) %></td>
+                        <td><%= country.region.title %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
