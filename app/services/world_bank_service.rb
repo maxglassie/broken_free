@@ -10,4 +10,8 @@ class WorldBankService
     country = JSON.parse(response.body)
   end
 
+  def highest_income_share(code)
+    response = @connection.get("")
+  end
+
 end
