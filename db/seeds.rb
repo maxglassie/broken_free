@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 
 def import_WB_countries_regions
     file = 'db/csv/WorldBank_Country_List.csv'
