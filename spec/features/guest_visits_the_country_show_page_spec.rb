@@ -32,7 +32,6 @@ RSpec.feature "guest visits country show" do
     expect(page).to have_content("Corruption Perception Index")
     expect(page).to have_content("Income Share Held By Top 10%")
 
-    save_and_open_page
     expect(page).to have_content(55.9)
     expect(page).to have_content(55.6)
     expect(page).to have_content(55.2)

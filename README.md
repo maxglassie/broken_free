@@ -1,24 +1,9 @@
-# README
+# Broken Free
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an open source project that combines three datasets:
+* Transparency International's Corruption Perception Index
+* The Heritage Foundation's Economic Freedom Index
+* The World Bank Development Indicators API
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you'd like to contribute to the code, please submit a pull request.
+If you have a research question you'd like to ask of the data, please let me know.
